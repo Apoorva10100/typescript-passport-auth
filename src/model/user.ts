@@ -5,7 +5,6 @@ import bcrypt from "bcrypt-nodejs";
 export interface IUser extends Document {
   username: string;
   password: string;
-  clearance: number;
 
   comparePassword(candidatePassword: string): boolean;
 }
@@ -13,7 +12,6 @@ export interface IUser extends Document {
 export const userSchema: Schema = new Schema({
   username: { type: String, unique: true, sparse: true, required: true },
   password: {type: String, required: true},
-  clearance: Number,
 });
 
 

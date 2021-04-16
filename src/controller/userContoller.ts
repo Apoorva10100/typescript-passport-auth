@@ -13,7 +13,6 @@ export class UserController {
     const user = await new User({
       username: req.body.username,
       password: hashedPassword,
-      clearance: req.body.clearance,
     })
     if (await User.findOne({ username: user.username })) {
       res.status(401).json({ status: 'error', code: 'existing user' });
